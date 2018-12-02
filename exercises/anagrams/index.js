@@ -24,16 +24,27 @@ function anagrams2(stringA, stringB) {
 
 // Character map solution
 function anagrams(stringA, stringB){
-    var charMapA = charMap(stringA);
-    var charMapB = charMap(stringB);
+    const charMapA = charMap(stringA);
+    const charMapB = charMap(stringB);
     
-    
+    if(Object.keys(charMapA).length!==Object.keys(charMapB).length){
+        return false;
+    } 
+
+    // Iterate in object; use in. otherwise you use of
+    // loop through either charMapB or A ... check occurance of characters.
+    for(let char in charMapA){
+        if(charMapB[char]!==charMapA[char]){
+            return false;
+        }
+    }
+    return true;
 }
 
 // Helper function: Build character map given a string.
 function charMap(str){
     const charObj = {};
-    for(let char in str.replace(/[^\w]/g,"").toLowerCase()){
+    for(let char of str.replace(/[^\w]/g,"").toLowerCase()){
        charObj[char] = charObj[char]+1||1;
     }
     return charObj;
