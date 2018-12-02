@@ -19,17 +19,45 @@
 
 // Iterative Solution
 function steps(n) {
+    // Iterate through rows
     for(let i = 0; i < n; i++){
         var stair ="";
-        for(let j =0; j < n; j++){
-            if(i<=j){
-                stair+="#"
-            } else{
-                stair+=" "
+        // Iterate through columns
+        for(let j = 0; j < n; j++){
+            if(j <= i){
+                stair += "#"
+            } else {
+                stair += " "
             }
         }
         console.log(stair);
     }
+}
+
+
+// Recursive Solution
+function steps(n, row=0,stair="") {
+    if(n===row){
+        return;
+    }
+
+    if(n===stair.length){
+        console.log(stair);
+        return steps(n, row + 1);
+    }
+
+    if(stair.length <= row){
+        stair += "#";
+    } else {
+        stair += " ";
+    }
+
+    // Ternirary Expression:
+    // const add = stair.length<=row ? '#' : ' ';
+    // steps(n,row,stairs+add);
+
+    steps(n,row,stair);
+
 }
 
 module.exports = steps;

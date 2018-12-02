@@ -11,7 +11,7 @@
 // My Solution
 function capitalize1(str) {
     let strArr = str.split(' ');
-
+    
     for(var word =0; word < strArr.length; word ++){
         var slicedWord = strArr[word].slice(1).split('');
         var firstChar =  strArr[word][0].toUpperCase().split('');
