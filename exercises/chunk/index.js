@@ -26,20 +26,17 @@ function chunk1(array, size) {
 }
 
 function chunk(array, size) {
-    var resArr = [[]];
-    var index;
-    if(array.length%size==0){
-        index =size;
-    } else { 
-        index = array.length%size + 1;
-    }
+    const chunked = [];
 
-    for(var i = 0 ; i < index; i){
-        for(var j = 0; j < size; j++){
-        resArr[[i]] = array[size];
+    for (let element of array){
+        const last = chucked[chunked.length-1];
+        if(!last || last.length==size){
+            chunked.push([element]);
+        } else{
+            last.push(element);
         }
     }
-    return resArr;
+    return chunked;
 }
 
 module.exports = chunk;
