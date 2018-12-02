@@ -8,6 +8,35 @@
 //   anagrams('RAIL! SAFETY!', 'fairy tales') --> True
 //   anagrams('Hi there', 'Bye there') --> False
 
-function anagrams(stringA, stringB) {}
+// Works but doesn't work for punctuation
+function anagrams1(stringA, stringB) {
+    var strA = stringA.toLowerCase().split(' ').join('').split('').sort().join('');
+    var strB = stringB.toLowerCase().split(' ').join('').split('').sort().join('');
+    return strA==strB;
+
+}
+
+
+// One line solution
+function anagrams2(stringA, stringB) {
+  return  stringA.replace(/[^\w]/g,"").toLowerCase().split(' ').join('').split('').sort().join('')==stringB.replace(/[^\w]/g,"").toLowerCase().split(' ').join('').split('').sort().join('');
+}
+
+// Character map solution
+function anagrams(stringA, stringB){
+    var charMapA = charMap(stringA);
+    var charMapB = charMap(stringB);
+    
+    
+}
+
+// Helper function: Build character map given a string.
+function charMap(str){
+    const charObj = {};
+    for(let char in str.replace(/[^\w]/g,"").toLowerCase()){
+       charObj[char] = charObj[char]+1||1;
+    }
+    return charObj;
+}
 
 module.exports = anagrams;

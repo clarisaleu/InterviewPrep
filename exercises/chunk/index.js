@@ -8,6 +8,7 @@
 // chunk([1, 2, 3, 4, 5], 4) --> [[ 1, 2, 3, 4], [5]]
 // chunk([1, 2, 3, 4, 5], 10) --> [[ 1, 2, 3, 4, 5]]
 
+//Doesn't work
 function chunk1(array, size) {
     var resArr = [[]];
     var index;
@@ -25,7 +26,8 @@ function chunk1(array, size) {
     return resArr;
 }
 
-function chunk(array, size) {
+// Iterate through the entire array.
+function chunk2(array, size) {
     const chunked = [];
 
     for (let element of array){
@@ -36,6 +38,17 @@ function chunk(array, size) {
             last.push(element);
         }
     }
+    return chunked;
+}
+
+// Using slice.
+function chunk(array, size) {
+    const chunked = [];
+    let index = 0;
+    while(index < array.length){
+        chunked.push(array.slice(index, index + size))
+        index+=size;
+    } 
     return chunked;
 }
 
