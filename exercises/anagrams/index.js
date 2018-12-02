@@ -23,7 +23,7 @@ function anagrams2(stringA, stringB) {
 }
 
 // Character map solution
-function anagrams(stringA, stringB){
+function anagrams3(stringA, stringB){
     const charMapA = charMap(stringA);
     const charMapB = charMap(stringB);
     
@@ -39,6 +39,17 @@ function anagrams(stringA, stringB){
         }
     }
     return true;
+}
+
+
+// Other Solution
+function anagrams(stringA,stringB){
+    return cleanString(stringA)==cleanString(stringB);
+}
+
+// Helper function: clean string
+function cleanString(str){
+    return str.replace(/[^\w]/g,"").toLowerCase().split('').sort().join('');
 }
 
 // Helper function: Build character map given a string.
