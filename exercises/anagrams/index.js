@@ -44,7 +44,7 @@ function anagrams3(stringA, stringB){
 
 // Other Solution
 function anagrams(stringA,stringB){
-    return cleanString(stringA)==cleanString(stringB);
+    return cleanString(stringA)===cleanString(stringB);
 }
 
 // Helper function: clean string
